@@ -5,11 +5,9 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 const CONFIG = {
-  space: 'yfvt5243ypo2',
-  accessToken: '9IgzFzIUQM15fdmieSclvFp3_aOsjA0MCPWLHVK8iNY',
+  space: 'SPACE KEY',
+  accessToken: 'ACCESS TOKEN KEY',
   contentTypeIds: {
-    //The property name angularPost can be whatever
-    //what matters in the value which is the content type Id.
     blog: 'reggetonBlog'
   }
 };
@@ -23,6 +21,8 @@ export class ContentfulService {
     space: CONFIG.space,
     accessToken: CONFIG.accessToken
   });
+
+  constructor() { }
 
   getPosts(query?: object): Observable<Entry<any>[]> {
     return from(
@@ -38,5 +38,4 @@ export class ContentfulService {
     return from(this.cdaClient.getEntry(id));
   }
 
-  constructor() { }
 }
